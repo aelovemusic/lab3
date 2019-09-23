@@ -4,7 +4,7 @@ import './App.css';
 import _ from 'lodash';
 
  
-let message = 'hello'
+let message = 'smart'
  
 const prepareStateFromWord = (given_word) => {
   let word = given_word.toUpperCase()
@@ -36,8 +36,8 @@ class App extends React.Component {
  
   render() {
     return (
-      <div>
-        
+      <div className='content'>
+        <h1>Nippit smart !</h1>
         {
           Array.from(this.state.chars).map((item, index) => (
             <CharacterCard
@@ -61,6 +61,7 @@ class App extends React.Component {
         }
         <div>Attemp {this.state.attempt}</div>
         {this.state.completed && <h4>Complete</h4>}
+        {this.state.completed && <h4>wow !! very good</h4>}
       </div>
     )
   }
