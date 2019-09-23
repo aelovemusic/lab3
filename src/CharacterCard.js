@@ -1,19 +1,26 @@
 import React from 'react';
- 
+
 class CharacterCard extends React.Component {
- 
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.attempt !== this.props.attempt) {
+            this.setState({ active: false })
+        }
+    }
     state = {
-        active: false
+        active: false,
     }
- 
+    
     activate = () => {
+
         this.setState({
-            active: !this.state.active
+            active: true,
         });
- 
+        if(!this.state.active)
         this.props.activationHandler(this.props.value);
+
     }
- 
+
     render() {
         let activeClass = this.state.active ? 'activeCard' : '';
         let className = `card ${activeClass}`
@@ -24,5 +31,5 @@ class CharacterCard extends React.Component {
         )
     }
 }
- 
+
 export default CharacterCard;
